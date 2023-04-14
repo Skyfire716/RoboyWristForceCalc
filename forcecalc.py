@@ -34,10 +34,10 @@ E3 = np.identity(3)
 np.set_printoptions(suppress=True, formatter={'float_kind':'{:0.2f}'.format})
 
 
-#65mm
-#sphereRadius = 0.065
-#Experiment with smaller sphere
+#Change the parameters of the mechanism here
+#SphereRadius in meters
 sphereRadius = 0.04
+#Angles in degree
 alpha = 37.5
 l1 = 45
 l2 = 87
@@ -55,8 +55,7 @@ l3 = 40
             
 with open('EXPERIMENTForcePositionCheck.txt', 'w') as f:
     
-    #range(-90, 90, 0.1):
-    #range(-50, 60, 0.1):
+    #Pitch and yaw min max values measured from the center
     for pitch in np.linspace(-70, 80, num=75, endpoint=False):
         for yaw in np.linspace(-40, 50, num=45, endpoint=False):
             #yaw = 20
@@ -68,6 +67,7 @@ with open('EXPERIMENTForcePositionCheck.txt', 'w') as f:
             #Regular Moment
             #tau = np.array([0.3, 1.5, 0.3])
             #Moment with reduced Sphereradius while full Wrist Plate Length
+            #Moment in NewtonMeter 
             tau = np.array([0.3, 2.0, 0.3])
 
             #1.5kg * 9,81m/s^2 ~= 15N
